@@ -32,7 +32,7 @@ func (u userUsecase) RegisterUser(name, nik, no_hp string) (*response.UserRekeni
 		log.WithFields(log.Fields{
 			"error": err,
 		}).Error("failed to create account")
-		return &response.UserBalanceResponse{}, fmt.Errorf("something Went wrong")
+		return &response.UserRekeningResponse{}, fmt.Errorf("something Went wrong")
 	}
 
 	log.WithFields(log.Fields{
