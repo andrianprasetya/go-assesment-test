@@ -9,3 +9,9 @@ func FromUserModelBalance(balance int) *response.UserBalanceResponse {
 		Balance: balance,
 	}
 }
+
+func FromUserModelRekening(no_rekening string) *response.UserRekeningResponse {
+	return &response.UserRekeningResponse{
+		NoRekening: no_rekening,
+	}
+}

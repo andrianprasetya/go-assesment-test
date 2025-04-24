@@ -36,7 +36,7 @@ func (h *UserHandler) RegisterUser(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusInternalServerError).JSON(response.ErrorResponse[any](err.Error(), err))
 	}
 
-	return c.Status(fiber.StatusCreated).JSON(response.SuccessResponse("User registered successfully", user))
+	return c.Status(fiber.StatusOK).JSON(response.SuccessResponse("User registered successfully", user))
 }
 
 func (h *UserHandler) GetBalance(c *fiber.Ctx) error {

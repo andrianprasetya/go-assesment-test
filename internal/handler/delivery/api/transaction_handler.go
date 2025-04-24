@@ -51,5 +51,5 @@ func (h *TransactionHandler) WithdrawAmount(c *fiber.Ctx) error {
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(response.ErrorResponse[any](err.Error(), err))
 	}
-	return c.Status(fiber.StatusCreated).JSON(response.SuccessResponse("Transaction withdraw successfully", transaction))
+	return c.Status(fiber.StatusOK).JSON(response.SuccessResponse("Transaction withdraw successfully", transaction))
 }

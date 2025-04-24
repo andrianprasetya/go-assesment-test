@@ -18,7 +18,7 @@ func NewUserUsecase(userRepo interfaces.UserRepository) interfaces.UserUsecase {
 	return &userUsecase{UserRepo: userRepo}
 }
 
-func (u userUsecase) RegisterUser(name, nik, no_hp string) (*response.UserBalanceResponse, error) {
+func (u userUsecase) RegisterUser(name, nik, no_hp string) (*response.UserRekeningResponse, error) {
 	user := &model.User{
 		ID:         utils.GenerateID(),
 		Name:       name,
@@ -43,7 +43,7 @@ func (u userUsecase) RegisterUser(name, nik, no_hp string) (*response.UserBalanc
 		"no_rekening": user.NoRekening,
 	}).Info("create account success")
 
-	return mapper.FromUserModelBalance(user.Balance), err
+	return mapper.FromUserModelRekening(user.NoRekening), err
 }
 
 func (u userUsecase) GetUserByNoRekening(no_rekening string) (*response.UserBalanceResponse, error) {
