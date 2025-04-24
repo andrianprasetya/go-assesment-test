@@ -13,3 +13,11 @@
 - Docker Container
 - Validation
 - Gorm
+
+## how to run
+
+1. copy .env.example .env
+2. run with docker ~ docker-compose up --build
+
+
+and then you can use it . well done 
