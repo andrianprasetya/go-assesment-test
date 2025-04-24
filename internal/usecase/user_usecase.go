@@ -18,7 +18,7 @@ func NewUserUsecase(userRepo interfaces.UserRepository) interfaces.UserUsecase {
 	return &userUsecase{UserRepo: userRepo}
 }
 
-func (u userUsecase) RegisterUser(name, nik, no_hp string) (*response.UserResponse, error) {
+func (u userUsecase) RegisterUser(name, nik, no_hp string) (*response.UserBalanceResponse, error) {
 	user := &model.User{
 		ID:         utils.GenerateID(),
 		Name:       name,
@@ -32,7 +32,7 @@ func (u userUsecase) RegisterUser(name, nik, no_hp string) (*response.UserRespon
 		log.WithFields(log.Fields{
 			"error": err,
 		}).Error("failed to create account")
-		return &response.UserResponse{}, fmt.Errorf("something Went wrong")
+		return &response.UserBalanceResponse{}, fmt.Errorf("something Went wrong")
 	}
 
 	log.WithFields(log.Fields{
@@ -43,7 +43,7 @@ func (u userUsecase) RegisterUser(name, nik, no_hp string) (*response.UserRespon
 		"no_rekening": user.NoRekening,
 	}).Info("create account success")
 
-	return mapper.FromUserModel(user), err
+	return mapper.FromUserModelBalance(user.Balance), err
 }
 
 func (u userUsecase) GetUserByNoRekening(no_rekening string) (*response.UserBalanceResponse, error) {

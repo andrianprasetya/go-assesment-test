@@ -12,6 +12,6 @@ type UserRepository interface {
 }
 
 type UserUsecase interface {
-	RegisterUser(name, nik, no_hp string) (*response.UserResponse, error)
+	RegisterUser(name, nik, no_hp string) (*response.UserBalanceResponse, error)
 	GetUserByNoRekening(no_rekening string) (*response.UserBalanceResponse, error)
 }

@@ -23,7 +23,6 @@ var (
 	mu           sync.Mutex
 	dbConnection *gorm.DB
 	initializers []Initializer
-	models       []interface{}
 	dialects     = map[string]dialect{}
 )
 
